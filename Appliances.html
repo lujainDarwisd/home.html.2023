@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>صفحة المنتجات</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <link rel="stylesheet" type="text/Java" href="myFunctions.js">
+</head>
+<body>
+    <h1>"صفحة المنتجات"</h1>
+    <table id="table_1">
+        <thead>
+            <tr>
+                <th> المنتج</th>
+                <th> التفاصيل</th>
+                <th> السعر</th>
+                <th>صورة</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>براد LG  GR-B259STA</td>
+                <td>French Door Refrigerator with 4 Split Spill - Proof Glass Shelves</td>
+                <td>8.000.000(Sy)</td>
+                <td>
+                    <img src="1.jpeg" alt="صورة البراد"><button onclick="addToCart('براد LG  GR-B259STA', 8000000, 1)">Add to Cart</button>
+                </td>
+            </tr>
+        <td> غسالة Midea Gulf MFC80DU1401</td>
+        <td>
+            Water magic cube - 15 Min Quick Wash - Bigger Door - 8KG
+        </td>
+        <td>5.500.000(Sy)</td>
+        <td>
+            <img src="2.jpeg" alt="صورة الغسالة"><button onclick="addToCart('غسالة Midea Gulf MFC80DU1401', 5500000, 1)">Add to Cart</button>
+        </td>
+        </tr>
+        <td>مكواة Orient Electric Ultimate DIUT10BM </td>
+        <td> 1000-Watt Heavy Dry Iron 220 V</td>
+        <td>1.000.000(Sy)</td>
+        <td>
+            <img src="3.jpg" alt="صورة المكواة"><button onclick="addToCart('مكواة Orient Electric Ultimate DIUT10BM', 1000000, 1)">Add to Cart</button>
+            </tr>
+        <td>جلاية الصحون Dishwasher with WaterWall Technology</td>
+        <td> 15 Place Settings - Dry+ Setting Option - Zone Booster</td>
+        <td>3.000.000(Sy)</td>
+        <td>
+            <img src="4.jpg" alt="صورة غسيل الصحون"><button onclick="addToCart('جلاية الصحون Dishwasher with WaterWall Technology', 3000000, 1)">Add to Cart</button>
+            </tr>
+        <td>خلاط Countertop Blender</td>
+        <td> 1000W Professional Kitchen Blender For Shakes And Smoothies High Speed Ice Blender Frozen Drinks Glass Jar</td>
+        <td>800.000(Sy)</td>
+        <td>
+            <img src="5.jpg" alt="صورة  خلاط"><button onclick="addToCart('خلاط Countertop Blender', 800000, 1)">Add to Cart</button>
+            </tr>
+        <td>فرن Hommer Electric Oven</td>
+        <td> Temperature Control, Timer - 2000 watts - Stainless Steel</td>
+        <td>4.500.000(Sy)</td>
+        <td>
+            <img src="6.jpg" alt="صورة  الفرن"><button onclick="addToCart('فرن Hommer Electric Oven', 4500000, 1)">Add to Cart</button>
+            </tr>
+        <td>ميكروويف MWF300G</td>
+        <td> Prepare fresh food in minutes with 20-preset cooking modes</td>
+        <td>2.000.000(Sy)</td>
+        <td>
+            <img src="7.jpg" alt="صورة  ميكروويف"><button onclick="addToCart('ميكروويف MWF300G', 2000000, 1)">Add to Cart</button>
+            </tr>
+        <td>مجفف للشعر Hair Dryers</td>
+        <td> 2000 Watt - 2 Speed 3 Heat Settings</td>
+        <td>900.000(Sy)</td>
+        <td>
+            <img src="8.jpg" alt="صورة  مجفف الشعر"><button onclick="addToCart('مجفف للشعر Hair Dryers', 900000, 1)">Add to Cart</button>
+            </tr>
+        <td>شاشة SAMSUNG Smart TV </td>
+        <td> 60Hz Refresh Rate - 40-Inch - Full HD </td>
+        <td>6.500.000(Sy)</td>
+        <td>
+            <img src="9.jpeg" alt="صورة  شاشة التلفاز"><button onclick="addToCart('شاشة SAMSUNG Smart TV', 6500000, 1)">Add to Cart</button>
+            </tr>
+        <td>مكنسة كهربائية Samsung Motion Sync Vacuum Cleaner</td>
+        <td> Control in the Consumer’s Hands - Powerful Suction that Lasts</td>
+        <td>1.999.000(Sy)</td>
+        <td>
+            <img src="10.jpg" alt="صورة  مكنسة الكهرباء"><button onclick="addToCart('مكنسة كهربائية Samsung Motion Sync Vacuum Cleaner', 1999000, 1)">Add to Cart</button>
+            </tr>
+
+
+            <div class="cart" id="cart">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المادة</th>
+                            <th>(Sy) السعر</th>
+                            <th>الكمية</th>
+                            <th> (Sy) السعر الإجمالي </th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartBody">
+                    </tbody>
+                </table>
+                <table>
+                    <tr>
+                        <th>%الضريبة: 5 (Sy)</th>
+                        <th>المجموع النهائي <span id="totalAmount"></span> (Sy)</th>
+                    </tr>
+                </table>
+            </div>
+
+
+            <button onclick="clearCart()">إلغاء</button>
+
+            <button id="continueBtn" onclick="showForm()">متابعة</button>
+            </div>
+
+            <div class="cards">
+                <div class="captcha-container">
+                    <div id="orderForm" style="display: none;">
+
+                        <form onsubmit="return validateForm()">
+                            <label for="fullName">الاسم الكامل:</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <br>
+
+                            <label for="nationalId">الرقم الوطني:</label>
+                            <input type="text" id="nationalId" name="nationalId" pattern="[0-9]{11}" required>
+                            <br>
+
+                            <label for="birthdate">تاريخ الولادة:</label>
+                            <input type="date" id="birthdate" name="birthdate" required>
+                            <br>
+
+                            <label for="mobileNumber">رقم الموبايل:</label>
+                            <input type="tel" id="mobileNumber" name="mobileNumber" pattern="(09[0-9]{8}|0[0-9]{8})" required>
+                            <br>
+
+                            <label for="email">البريد الإلكتروني:</label>
+                            <input type="email" id="email" name="email" required>
+                            <br>
+
+                            <button class="captcha-button" onclick="refreshCaptcha()">تحديث Captcha</button>
+                            <div class="captcha" id="captcha">ABC123</div>
+                            <br>
+                            <input type="text">
+                            <br>
+                            <button id="submitBtn" type="submit">شراء</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <script src="myFunctions.js"></script>
+
+</body>
+</html>
